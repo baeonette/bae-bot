@@ -18,7 +18,8 @@ Click the green "Code" button, then in the HTTPS tab, click "Download ZIP".
 
 OR
 
-```git clone https://github.com/baeonette/bae-bot.git
+```
+git clone https://github.com/baeonette/bae-bot.git
 cd bae-bot
 ```
 
