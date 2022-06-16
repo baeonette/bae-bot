@@ -1,3 +1,7 @@
+![logo](https://i.imgur.com/njKdmpY.png)
+
+# Bae Bot (Modular Starter Bot with Discord.JS)
+
 __ABOUT__
 
 Simple bot using v13 of Discord.js
@@ -9,6 +13,16 @@ Simple bot using v13 of Discord.js
 
 
 __QUICK STARTUP__
+
+Click the green "Code" button, then in the HTTPS tab, click "Download ZIP".
+
+OR
+
+```git clone https://github.com/baeonette/bae-bot.git
+cd bae-bot
+```
+
+⚠️ **Note: Never commit or share your token** ⚠️
 
 REQUIRED: Add the Token, Client/Application ID, Prefix, as well as a test server ID to `./config/config.json`. The test server ID will be the server slash commands get deployed to when they're in development and not quite ready to be deployed globally.
 
