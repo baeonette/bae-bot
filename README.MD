@@ -1,4 +1,4 @@
-[ABOUT]
+__ABOUT__
 
 Simple bot using v13 of Discord.js
 
@@ -8,7 +8,7 @@ Simple bot using v13 of Discord.js
 
 
 
-[QUICK-STARTUP]
+__QUICK STARTUP__
 
 REQUIRED: Add the Token, Client/Application ID, Prefix, as well as a test server ID to `./config/config.json`. The test server ID will be the server slash commands get deployed to when they're in development and not quite ready to be deployed globally.
 
@@ -16,7 +16,7 @@ Run `npm run initial-startup` to install dependencies, deploy slash commands to 
 
 
 
-[STARTUP]
+__STARTUP__
 
 Run `npm i` to install dependencies.
 
