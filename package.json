@@ -1,0 +1,21 @@
+{
+  "name": "bae-bot-v13",
+  "version": "1.0.0",
+  "description": "Simple Discord.js v13 bot",
+  "main": "index.js",
+  "scripts": {
+    "initial-startup": "npm i; node ./deploy/deploy-dev.js; node .",
+    "start": "node .",
+    "deploy-dev": "node ./deploy/deploy-dev.js",
+    "deploy-global": "node ./deploy/deploy-global.js",
+    "update-global": "node ./deploy/update-commands.js"
+  },
+  "keywords": [],
+  "author": "baeonette",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/rest": "^0.5.0",
+    "discord.js": "^13.8.0",
+    "nodemon": "^2.0.16"
+  }
+}

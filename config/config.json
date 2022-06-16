@@ -1,0 +1,11 @@
+{
+    "PREFIX": ".",
+    "BOT_NAME": "Bae.dev",
+    "TOKEN": "",
+    "DEV_GUILD_ID": "",
+    "CLIENT_ID": "",
+    "LOG_CHANNEL": "",
+    "STATUS": "dnd",
+    "ACTIVITY": "discord",
+    "TYPE": "WATCHING"
+}
