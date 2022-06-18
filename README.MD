@@ -14,6 +14,9 @@ Simple bot using v13 of Discord.js
 
 __QUICK STARTUP__
 
+⚠️ **Note: Use version 16 of NodeJS to avoid errors: run `nvm use 16` to use version 16** ⚠️
+*You may need to isntall nvm*
+
 Click the green "Code" button, then in the HTTPS tab, click "Download ZIP".
 
 OR
