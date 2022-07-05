@@ -6,6 +6,7 @@ module.exports = {
         .setDescription('Replies with Pong!'),
 
     async execute(interaction) {
-        return interaction.reply('Pong!');
+        const ping = `📈 Ping: ${Math.round(interaction.client.ws.ping)}ms`
+        return interaction.reply(ping);
     },
 };
