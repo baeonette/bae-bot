@@ -199,11 +199,13 @@ client.on('ready', async () => {
 
     // Set bot presence in ./config/config.json
     client.user.setPresence({
-        status: `${STATUS}`,
-        activity: {
-            name: `${ACTIVITY}`,
-            type: `${TYPE}`
-        }
+        activities: [
+            {
+                name: `${ACTIVITY}`,
+                type: `${TYPE}`,
+
+            }
+        ], status: `${STATUS}`
     });
 });
 // Set token in ./config/config.json
