@@ -43,7 +43,6 @@ const path = require('node:path');
 
 // Slash Command Handler
 client.slashCommands = new Collection();
-client.buttonHandler = new Collection();
 const slashCommandDir = fs.readdirSync("interactions/slash_commands/");
 for (const slashCommandPath of slashCommandDir) {
     const commandFiles =
