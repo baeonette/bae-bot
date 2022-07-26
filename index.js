@@ -55,15 +55,6 @@ for (const slashCommandPath of slashCommandDir) {
         client.slashCommands.set(command.data.name, command);
     }
 };
-// const commandsPath = path.join(__dirname, 'interactions/slash_commands/');
-// const slashCommandFiles =
-//     fs.readdirSync(commandsPath)
-//         .filter(file => file.endsWith('.js'));
-// for (const file of slashCommandFiles) {
-//     const filePath = path.join(commandsPath, file);
-//     const command = require(filePath);
-//     client.slashCommands.set(command.data.name, command);
-// };
 
 // Button Handler
 client.buttonHandler = new Collection();
