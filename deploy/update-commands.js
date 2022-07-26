@@ -1,15 +1,14 @@
 // Run this file to deploy new commands globally
 const fs = require('node:fs');
 const path = require('node:path');
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
+const { Routes } = require('discord.js');
 const { CLIENT_ID, TOKEN } = require('../config/config.json');
-const { Client, Intents } = require('discord.js');
+const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({
     intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES,
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages
     ]
 });
 
@@ -24,7 +23,7 @@ client.login(TOKEN);
 
 const commands = [];
 const commandsPath = path.join(__dirname, '../interactions/slash_commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.command.js'));
 
 for (const file of commandFiles) {
     const filePath = path.join(commandsPath, file);
@@ -37,7 +36,7 @@ for (const file of commandFiles) {
 const deployedCommands = []; // Commands that have been deployed
 const currentCommands = []; // Commands that are in ../commands/slash
 
-const rest = new REST({ version: '9' }).setToken(TOKEN);
+const rest = new REST({ version: '10' }).setToken(TOKEN); // Now using v10
 
 // Fetches all global commands and adds them to the deployedCommands array
 rest.get(Routes.applicationCommands(CLIENT_ID))
@@ -56,7 +55,7 @@ rest.get(Routes.applicationCommands(CLIENT_ID))
             currentCommands.push(c.name);
         });
     })
-    .then(() => {
+    .then(async () => {
         // Get deployed slash command names
         const deployedNames = deployedCommands.map(function (obj) { return obj.name });
 
@@ -64,11 +63,14 @@ rest.get(Routes.applicationCommands(CLIENT_ID))
         let diff = deployedNames.filter(x => !currentCommands.includes(x)).toString();
 
         // Delete inactive command
-        deployedCommands.forEach((s, i) => {
+        deployedCommands.forEach(async (s, i) => {
+            console.log(s)
             // If an inactive command is found
             if (s.name === diff) {
                 console.log("Inactive global slash command found. Starting update process...");
-                client.api.applications(CLIENT_ID).commands(s.id).delete();
+                await rest.delete(Routes.applicationCommand(CLIENT_ID, `${s.id}`))
+                    .then(() => console.log('Successfully deleted application command'))
+                    .catch(console.error);
             }
         });
     }).then(() => {

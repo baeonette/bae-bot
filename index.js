@@ -1,9 +1,10 @@
 // Import Discord.js
 const {
-    Intents,
+    GatewayIntentBits,
     Client,
     Collection,
-    MessageEmbed
+    ActivityType,
+    Partials
 } = require('discord.js');
 
 // Import Configurations
@@ -24,8 +25,14 @@ const logError = require('./module_exports/error.js');
 // Create Discord Client
 const client = new Client({
     intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES,
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+    ],
+    partials: [ // Add partials so we get data
+        Partials.User,
+        Partials.Channel,
+        Partials.Message,
+        Partials.GuildMember
     ]
 });
 
@@ -202,10 +209,10 @@ client.on('ready', async () => {
         activities: [
             {
                 name: `${ACTIVITY}`,
-                type: `${TYPE}`,
+                type: ActivityType[TYPE],
 
             }
-        ], status: `${STATUS}`
+        ], status: `${STATUS}` // Playing, Watching, Listening, Competing, Streaming
     });
 });
 // Set token in ./config/config.json

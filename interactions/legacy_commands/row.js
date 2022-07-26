@@ -1,28 +1,28 @@
-const { MessageActionRow, MessageButton } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder } = require('discord.js');
 
 module.exports = {
     name: "row",
     description: "Row of buttons",
     execute(client, message, args) {
-        const rowDemo = new MessageActionRow()
+        const rowDemo = new ActionRowBuilder()
             .addComponents(
-                new MessageButton()
+                new ButtonBuilder()
                     .setCustomId("row_demo1")
                     .setLabel("Primary")
                     .setStyle("PRIMARY"),
-                new MessageButton()
+                new ButtonBuilder()
                     .setCustomId("row_demo2")
                     .setLabel("Secondary")
                     .setStyle("SECONDARY"),
-                new MessageButton()
+                new ButtonBuilder()
                     .setCustomId("row_demo3")
                     .setLabel("Success")
                     .setStyle("SUCCESS"),
-                new MessageButton()
+                new ButtonBuilder()
                     .setCustomId("row_demo4")
                     .setLabel("Danger")
                     .setStyle("DANGER"),
-                new MessageButton()
+                new ButtonBuilder()
                     .setLabel('Link')
                     .setURL("https://github.com/baeonette")
                     .setStyle("LINK")

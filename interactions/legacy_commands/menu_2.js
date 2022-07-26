@@ -1,13 +1,13 @@
-const { MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
 
 module.exports = {
-    name: "menu2",
-    description: "Menu command",
-    execute(client, message, args) {
-        // Menu 2
-        const menu = new MessageActionRow()
+	name: "menu2",
+	description: "Menu command",
+	execute(client, message, args) {
+		// Menu 2
+		const menu = new ActionRowBuilder()
 			.addComponents(
-				new MessageSelectMenu()
+				new SelectMenuBuilder()
 					.setCustomId('select2')
 					.setPlaceholder('Nothing selected on menu 2')
 					.addOptions([
@@ -25,5 +25,5 @@ module.exports = {
 			);
 
 		message.channel.send({ content: 'Message Menu Number Two!', components: [menu] });
-    }
+	}
 };

@@ -1,13 +1,13 @@
 // Import
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 // Error Logger
 module.exports = (client, error, channel_id, type = "Legacy/Slash/Button/Menu") => {
-    
+
     if (client.channels.cache.get(channel_id) === undefined) return; // Return if no channel is provided
 
     try {
-        const errorEmbed = new MessageEmbed()
+        const errorEmbed = new EmbedBuilder()
             .setTitle('Terminal')
             .setAuthor({ name: `${type} Commands` })
             .setColor('#000000')

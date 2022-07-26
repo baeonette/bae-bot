@@ -1,12 +1,12 @@
-const { MessageActionRow, MessageButton } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder } = require('discord.js');
 
 module.exports = {
     name: "button",
     description: "Get a button",
     execute(client, message, args) {
-        const button = new MessageActionRow()
+        const button = new ActionRowBuilder()
             .addComponents(
-                new MessageButton()
+                new ButtonBuilder()
                     .setCustomId("blue_button")
                     .setLabel("Click me!")
                     .setStyle("PRIMARY")

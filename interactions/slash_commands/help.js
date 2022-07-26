@@ -1,5 +1,4 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { BOT_NAME } = require('../../config/config.json');
 
 module.exports = {
@@ -10,7 +9,7 @@ module.exports = {
     async execute(interaction, client) {
         let slashCommands = client.slashCommands; // Fetches Legacy commands
 
-        const helpEmbed = new MessageEmbed()
+        const helpEmbed = new EmbedBuilder()
             .setTitle(`${BOT_NAME}'s Slash Commands`)
             .setColor('#ffffff')
 

@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,7 +10,7 @@ module.exports = {
         const user = interaction.options.getUser('mention');
         if (user) { // If user is mentioned
 
-            const avatarEmbed = new MessageEmbed()
+            const avatarEmbed = new EmbedBuilder()
                 .setAuthor({ name: `${user.username}'s Avatar` })
                 .setImage(user.displayAvatarURL({ dynamic: true, size: 1024 }))
                 .setColor(interaction.guild.members.cache.get(user.id).displayHexColor)
@@ -21,7 +20,7 @@ module.exports = {
             })
         };
         // Default
-        const avatarEmbed = new MessageEmbed()
+        const avatarEmbed = new EmbedBuilder()
             .setAuthor({ name: `${interaction.user.username}'s Avatar` })
             .setImage(interaction.user.displayAvatarURL({ dynamic: true, size: 1024 }))
             .setColor(interaction.member.displayHexColor)

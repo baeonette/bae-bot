@@ -4,11 +4,11 @@
 
 __ABOUT__
 
-Simple bot using v13 of Discord.js
+Simple bot using v14 of Discord.js
 
 - NodeJS v16 [You can run `nvm use 16` to use version 16 of node]
 - npm v8
-- Discord.js v13
+- Discord.js v14
 
 
 
