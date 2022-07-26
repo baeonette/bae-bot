@@ -1,4 +1,4 @@
-const { ActionRowBuilder, ButtonBuilder } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
 module.exports = {
     name: "button",
@@ -9,7 +9,7 @@ module.exports = {
                 new ButtonBuilder()
                     .setCustomId("blue_button")
                     .setLabel("Click me!")
-                    .setStyle("PRIMARY")
+                    .setStyle(ButtonStyle.Primary)
                     .setEmoji("🔶")
             );
 

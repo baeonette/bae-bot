@@ -27,6 +27,7 @@ const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent // Make sure the bots "Message Content Intent" is turned on in discord developer portal
     ],
     partials: [ // Add partials so we get data
         Partials.User,
@@ -96,27 +97,29 @@ for (const file of commandFiles) {
 // Slash Command/Button/Menu event
 client.on('interactionCreate', async interaction => {
     // Slash commands
-    if (interaction.isCommand()) {
+    if (interaction.isChatInputCommand()) {
 
         const command =
             client.slashCommands.get(interaction.commandName); // Get commands
 
-        if (!command) return; // Return if no slash command is found
+        // Return if no slash command is found
+        if (command) {
 
-        try {
-            await command.execute(interaction, client);
-        } catch (error) {
-            console.error(error);
-            await interaction.reply({ content: 'There was an error while executing this command :/', ephemeral: true });
+            try {
+                await command.execute(interaction, client);
+            } catch (error) {
+                console.error(error);
+                await interaction.reply({ content: 'There was an error while executing this command :/', ephemeral: true });
 
-            // Log error in Logs channel
-            logError(
-                client,
-                error,
-                LOG_CHANNEL,
-                "Slash"
-            );
-        }
+                // Log error in Logs channel
+                logError(
+                    client,
+                    error,
+                    LOG_CHANNEL,
+                    "Slash"
+                );
+            };
+        };
     };
 
     // Buttons
@@ -126,20 +129,22 @@ client.on('interactionCreate', async interaction => {
         const button =
             client.buttonHandler.get(interaction.customId); // Get button IDs
 
-        if (!button) return; // Return if no button is found
+        // Return if no button is found
+        if (button) {
 
-        try {
-            button.execute(interaction, client);
-        } catch (error) {
-            console.log(error);
+            try {
+                button.execute(interaction, client);
+            } catch (error) {
+                console.log(error);
 
-            // Log error in Logs channel
-            logError(
-                client,
-                error,
-                LOG_CHANNEL,
-                "Buttons"
-            );
+                // Log error in Logs channel
+                logError(
+                    client,
+                    error,
+                    LOG_CHANNEL,
+                    "Buttons"
+                );
+            };
         };
     };
 
@@ -149,24 +154,24 @@ client.on('interactionCreate', async interaction => {
         const menu =
             client.menuHandler.get(interaction.customId + "%%" + interaction.values[0]); // Gets menu
 
-        if (!menu) return;
+        // Return if no menus
+        if (menu) {
 
-        try {
-            menu.execute(interaction, client);
-        } catch (error) {
-            console.log(error);
+            try {
+                menu.execute(interaction, client);
+            } catch (error) {
+                console.log(error);
 
-            // Log error in Logs channel
-            logError(
-                client,
-                error,
-                LOG_CHANNEL,
-                "Menus"
-            );
-        }
-
+                // Log error in Logs channel
+                logError(
+                    client,
+                    error,
+                    LOG_CHANNEL,
+                    "Menus"
+                );
+            };
+        };
     };
-
 });
 
 // Legacy Commands Message Event
