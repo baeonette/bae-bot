@@ -11,14 +11,22 @@ if (CLIENT_ID === "") { // CLIENT_ID is required to run
 };
 
 const commands = [];
-const commandsPath = path.join(__dirname, '../interactions/slash_commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.command.js'));
 
-for (const file of commandFiles) {
-    const filePath = path.join(commandsPath, file);
-    const command = require(filePath);
-    commands.push(command.data.toJSON());
-}
+let currentDir = __dirname.split('/');
+currentDir.pop();
+currentDir = currentDir.join('/')
+
+const slashCommandDir = fs.readdirSync(currentDir + "/interactions/slash_commands/");
+for (const slashCommandPath of slashCommandDir) {
+    const commandFiles =
+        fs.readdirSync(currentDir + "/interactions/slash_commands/" + slashCommandPath)
+            .filter(x => x.endsWith('.command.js'));
+
+    for (commandFile of commandFiles) {
+        const command = require(path.join(currentDir, "/interactions/slash_commands/" + slashCommandPath + "/" + `${commandFile}`));
+        commands.push(command.data.toJSON());
+    }
+};
 
 const rest = new REST({ version: '10' }).setToken(TOKEN);
 

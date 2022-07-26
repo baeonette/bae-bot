@@ -8,7 +8,7 @@
     "start": "node .",
     "deploy-dev": "node ./deploy/deploy-dev.js",
     "deploy-global": "node ./deploy/deploy-global.js",
-    "update-global": "node ./deploy/update-commands.js"
+    "delete-slash-commands": "node ./deploy/delete-slash-commands.js"
   },
   "keywords": [],
   "author": "baeonette",

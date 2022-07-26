@@ -48,11 +48,11 @@ You can add and remove slash commands at any time. They wont be visible though, 
 
 Deploying to a test server is ideal for development, as they deploy instantly, and only that server can use them so you don't have people using it without it being ready.
 
-If you decide to delete a global slash command, simply remove the file, and run `npm run update-global`. This will delete global slash commands no longer in `./interactions/slash_commands`.
+If you decide to delete a global slash command, simply remove the file, and run `npm run delete-slash-commands`. This will delete ALL global and guild slash commands from the discord API. Once that is completed, you can run `npm run deploy-dev`, or `npm run deploy-global` to re-deploy the remaining commands.
 
 
 
-NOTE: Running `npm run update-global` does not add new commands, it only checks if commands have been removed. That way you have more control over when and where slash commands get released to.
+NOTE: Running `npm run delete-slash-commands` removes all slash commands from the Discord API. IMPORTANT: This does NOT delete any files, it simply removes the slash commands from Discord.
 
 
 

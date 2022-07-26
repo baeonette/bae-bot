@@ -43,15 +43,28 @@ const path = require('node:path');
 
 // Slash Command Handler
 client.slashCommands = new Collection();
-const commandsPath = path.join(__dirname, 'interactions/slash_commands');
-const slashCommandFiles =
-    fs.readdirSync(commandsPath)
-        .filter(file => file.endsWith('.js'));
-for (const file of slashCommandFiles) {
-    const filePath = path.join(commandsPath, file);
-    const command = require(filePath);
-    client.slashCommands.set(command.data.name, command);
+client.buttonHandler = new Collection();
+const slashCommandDir = fs.readdirSync("interactions/slash_commands/");
+for (const slashCommandPath of slashCommandDir) {
+    const commandFiles =
+        fs.readdirSync("interactions/slash_commands/" + slashCommandPath)
+            .filter(x => x.endsWith('.command.js'));
+
+    for (commandFile of commandFiles) {
+        const command = require(path.join(__dirname, "interactions/slash_commands/" + slashCommandPath + "/" + `${commandFile}`));
+        // const command = require(filePath);
+        client.slashCommands.set(command.data.name, command);
+    }
 };
+// const commandsPath = path.join(__dirname, 'interactions/slash_commands/');
+// const slashCommandFiles =
+//     fs.readdirSync(commandsPath)
+//         .filter(file => file.endsWith('.js'));
+// for (const file of slashCommandFiles) {
+//     const filePath = path.join(commandsPath, file);
+//     const command = require(filePath);
+//     client.slashCommands.set(command.data.name, command);
+// };
 
 // Button Handler
 client.buttonHandler = new Collection();
