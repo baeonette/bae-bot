@@ -51,7 +51,6 @@ for (const slashCommandPath of slashCommandDir) {
 
     for (commandFile of commandFiles) {
         const command = require(path.join(__dirname, "interactions/slash_commands/" + slashCommandPath + "/" + `${commandFile}`));
-        // const command = require(filePath);
         client.slashCommands.set(command.data.name, command);
     }
 };
