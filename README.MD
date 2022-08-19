@@ -1,5 +1,3 @@
-![logo](https://i.imgur.com/njKdmpY.png)
-
 # Bae Bot (Modular Starter Bot with Discord.JS)
 
 __ABOUT__
