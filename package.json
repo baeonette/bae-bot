@@ -1,7 +1,7 @@
 {
-  "name": "bae-bot-v13",
+  "name": "bae-bot",
   "version": "1.0.0",
-  "description": "Simple Discord.js v13 bot",
+  "description": "Simple Discord.js v14 bot",
   "main": "index.js",
   "scripts": {
     "initial-startup": "npm i; node ./deploy/deploy-dev.js; node .",
