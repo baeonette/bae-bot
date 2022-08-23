@@ -2,13 +2,13 @@
   "name": "bae-bot",
   "version": "1.0.0",
   "description": "Simple Discord.js v14 bot",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "initial-startup": "npm i; node ./deploy/deploy-dev.js; node .",
+    "initial-startup": "npm i; node ./src/deploy/deploy-dev.js; node .",
     "start": "node .",
-    "deploy-dev": "node ./deploy/deploy-dev.js",
-    "deploy-global": "node ./deploy/deploy-global.js",
-    "delete-slash-commands": "node ./deploy/delete-slash-commands.js"
+    "deploy-dev": "node ./src/deploy/deploy-dev.js",
+    "deploy-global": "node ./src/deploy/deploy-global.js",
+    "delete-slash-commands": "node ./src/deploy/delete-slash-commands.js"
   },
   "keywords": [],
   "author": "baeonette",
@@ -16,6 +16,7 @@
   "dependencies": {
     "@discordjs/rest": "^0.5.0",
     "discord.js": "^14.0.3",
+    "logready": "^1.0.0",
     "nodemon": "^2.0.16"
   }
 }

@@ -19,7 +19,7 @@ const {
 } = require('./config/config.json');
 
 // Import Module Exports
-const ready = require('./module_exports/ready.js');
+const logready = require('logready');
 const logError = require('./module_exports/error.js');
 
 // Create Discord Client
@@ -209,7 +209,7 @@ client.on('messageCreate', message => {
 
 // Ready Event
 client.on('ready', async () => {
-    ready(BOT_NAME);
+    logready(BOT_NAME);
 
     // Set bot presence in ./config/config.json
     client.user.setPresence({

@@ -8,12 +8,12 @@ Simple bot using v14 of Discord.js
 - npm v8
 - Discord.js v14
 
-
+### Check out the @discordjs-cli/discordjs-cli command line interface on NPM
 
 __QUICK STARTUP__
 
 ⚠️ **Note: Use version 16 of NodeJS to avoid errors: run `nvm use 16` to use version 16** ⚠️
-*You may need to isntall nvm*
+*You may need to install nvm*
 
 Click the green "Code" button, then in the HTTPS tab, click "Download ZIP".
 
