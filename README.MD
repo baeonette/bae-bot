@@ -26,7 +26,7 @@ cd bae-bot
 
 ⚠️ **Note: Never commit or share your token** ⚠️
 
-REQUIRED: Add the Token, Client/Application ID, Prefix, as well as a test server ID to `./config/config.json`. The test server ID will be the server slash commands get deployed to when they're in development and not quite ready to be deployed globally.
+REQUIRED: Add the Token, Client/Application ID, Prefix, as well as a test server ID to `./src/config/config.json`. The test server ID will be the server slash commands get deployed to when they're in development and not quite ready to be deployed globally.
 
 Run `npm run initial-startup` to install dependencies, deploy slash commands to specified test server, and run bot.
 
@@ -36,7 +36,7 @@ __STARTUP__
 
 Run `npm i` to install dependencies.
 
-Add the Token, Client/Application ID, Prefix, as well as a test server ID to `./config/config.json`. The test server ID will be the server slash commands get deployed to when they're in development and not quite ready to be deployed globally.
+Add the Token, Client/Application ID, Prefix, as well as a test server ID to `./src/config/config.json`. The test server ID will be the server slash commands get deployed to when they're in development and not quite ready to be deployed globally.
 
 Next, run `npm run deploy-dev` to deploy slash commands to your test server, or run `npm run deploy-global` to deploy them globally. NOTE: Global slash commands can take up to an hour to register.
 
@@ -55,5 +55,5 @@ NOTE: Running `npm run delete-slash-commands` removes all slash commands from th
 
 
 *Optional:*
-- You can add a logs channel ID to `./config/config.json` where error messages will be sent, as well as being logged in the console.
+- You can add a logs channel ID to `./src/config/config.json` where error messages will be sent, as well as being logged in the console.
   
